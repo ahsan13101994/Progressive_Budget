@@ -13,13 +13,12 @@ const FILES_TO_CACHE = [
  
   
   self.addEventListener("install", function (evt) {
-    evt.waitUntil(
-        caches.open(CACHE_NAME).then(cache => {
-            console.log("cached successfully!");
-            return cache.addAll(FILES_TO_CACHE);
-        })
-    );
-    self.skipWaiting();
+  
+  evt.waitUntil(
+    caches.open(CACHE_NAME).then((cache) => 
+    cache.addAll(FILES_TO_CACHE))
+  );
+  self.skipWaiting();
 });
   
   self.addEventListener("activate", function(evt) {
